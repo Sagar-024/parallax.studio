@@ -681,8 +681,428 @@ dark:            // Dark mode
 5. **`cn()` utility** is essential for dynamic className merging
 6. **Remove focus styles** by explicitly setting `outline-none focus:outline-none`
 7. **Responsive design** uses mobile-first approach (`sm:`, `md:`, `lg:`)
+8. **Desktop-first design**: Build and perfect for desktop, then adapt for smaller screens
+
+---
+
+## 🎬 Framer Motion & Animations
+
+### TypeScript Type Errors with Framer Motion
+
+**❌ Common Error:**
+
+```
+Type 'string' is not assignable to type 'Transition<any> | undefined'
+```
+
+**Problem Breakdown:**
+
+1. **Passing a string instead of an object:**
+
+```tsx
+// ❌ Wrong - passing a string
+<motion.div transition="transition" />
+```
+
+2. **Type inference issue with ease property:**
+
+```tsx
+// ❌ TypeScript infers "easeOut" as generic string
+const container = {
+  transition: { duration: 0.8, ease: "easeOut" },
+};
+```
+
+**✅ Solutions:**
+
+**Fix 1: Pass the actual transition object**
+
+```tsx
+<motion.div transition={container.transition} /> // ✅ Correct
+```
+
+**Fix 2: Use `as const` for type narrowing**
+
+```tsx
+const container = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" as const }, // ✅ Type-safe
+};
+```
+
+**How `as const` works:**
+
+- Tells TypeScript this is a literal value, not a generic string
+- Converts `"easeOut"` from type `string` to type `"easeOut"`
+- Framer Motion's `Easing` type accepts specific literal strings like `"easeOut"`, `"easeIn"`, `"linear"`, etc.
+
+### Complete Animation Variants Pattern
+
+```tsx
+const container = {
+  hidden: {
+    opacity: 0,
+    scale: 0.98,
+    y: -200,
+    filter: "blur(1px)",
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    filter: "blur(0px)",
+  },
+  transition: { duration: 0.5, ease: "easeOut" as const, delay: 0.2 },
+};
+
+// Usage
+<motion.div
+  initial="hidden"
+  animate="visible"
+  transition={container.transition}
+  variants={container}
+>
+  {/* content */}
+</motion.div>;
+```
+
+**Animation Properties Explained:**
+
+| Property  | Purpose                | Example Values           |
+| --------- | ---------------------- | ------------------------ |
+| `opacity` | Fade in/out            | `0` to `1`               |
+| `scale`   | Zoom effect            | `0.98` to `1`            |
+| `y`       | Vertical movement (px) | `-200` to `0`            |
+| `filter`  | Apply CSS filters      | `blur(1px)` to `blur(0)` |
+
+---
+
+## 🎨 3D Transforms & CSS Perspective
+
+### Understanding 3D Image Positioning
+
+**❌ Common Problem: Image Not Visible**
+
+```tsx
+// This causes image to collapse to 0 size!
+<Image
+  className="absolute inset-0" // ❌ Bad with no parent height
+  style={{ transform: "rotateX(20deg)" }}
+/>
+```
+
+**Why it fails:**
+
+- `absolute inset-0` makes element fill parent's dimensions
+- If parent has no defined height, element becomes 0x0
+- Image disappears!
+
+**✅ Solution 1: Remove absolute positioning**
+
+```tsx
+<Image
+  width={1400}
+  height={900}
+  className="rounded-[20px] shadow-2xl" // ✅ Takes natural size
+  style={{ transform: "rotateX(20deg)" }}
+/>
+```
+
+**✅ Solution 2: Use absolute with proper parent**
+
+```tsx
+<div className="relative min-h-[600px]">
+  {" "}
+  {/* Parent has height */}
+  <Image
+    className="absolute inset-0" // ✅ Now works
+    style={{ transform: "rotateX(20deg)" }}
+  />
+</div>
+```
+
+### 3D Transform Properties
+
+**Basic Syntax:**
+
+```tsx
+style={{
+  transform: "rotateX(40deg) rotateY(20deg) rotateZ(-20deg)"
+}}
+```
+
+**Transform Functions:**
+
+| Function       | Effect                            | Example                                     |
+| -------------- | --------------------------------- | ------------------------------------------- |
+| `rotateX()`    | Rotate around X-axis (horizontal) | `rotateX(20deg)` - tilts forward/back       |
+| `rotateY()`    | Rotate around Y-axis (vertical)   | `rotateY(30deg)` - tilts left/right         |
+| `rotateZ()`    | Rotate around Z-axis (depth)      | `rotateZ(-20deg)` - spins clockwise/counter |
+| `translateX()` | Move horizontally                 | `translateX(80px)`                          |
+| `translateY()` | Move vertically                   | `translateY(60px)`                          |
+| `translateZ()` | Move in 3D space                  | `translateZ(-100px)` - pushes back          |
+
+**Perspective Setup:**
+
+```tsx
+// Method 1: CSS perspective property
+<motion.div
+  className="perspective-[4000px]"  // Tailwind arbitrary value
+  style={{
+    transformStyle: "preserve-3d",
+    perspective: "2000px"  // Or inline
+  }}
+>
+```
+
+**What is perspective?**
+
+- Controls the "camera distance" from 3D elements
+- Lower values = more dramatic 3D effect (e.g., 1000px)
+- Higher values = subtle 3D effect (e.g., 4000px)
+- `preserve-3d` ensures child elements maintain 3D transformations
+
+### Creating Stacked Card Effect
+
+**Pattern for layered 3D cards:**
+
+```tsx
+<div className="relative min-h-[600px] flex items-center justify-center">
+  {/* Back layer - offset and dimmed */}
+  <motion.div className="absolute" style={{ transformStyle: "preserve-3d" }}>
+    <Image
+      width={1400}
+      height={900}
+      className="opacity-60 translate-x-20 -translate-y-20"
+      style={{
+        transform: "rotateX(40deg) rotateY(20deg) rotateZ(-20deg)",
+      }}
+    />
+  </motion.div>
+
+  {/* Front layer - main focus */}
+  <motion.div
+    className="relative z-10"
+    style={{ transformStyle: "preserve-3d" }}
+  >
+    <Image
+      width={1400}
+      height={900}
+      style={{
+        transform: "rotateX(40deg) rotateY(20deg) rotateZ(-20deg)",
+      }}
+    />
+  </motion.div>
+</div>
+```
+
+**Key techniques:**
+
+- Back layer: `absolute` positioning with `opacity-60`
+- Front layer: `relative z-10` for stacking
+- Same rotation angles for consistency
+- Offset with `translate-x-20 -translate-y-20` for depth
+
+### CSS Mask for Fade Effects
+
+**Creating bottom fade-out:**
+
+```tsx
+style={{
+  maskImage: "linear-gradient(to bottom, black 40%, transparent 95%)",
+  WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 95%)",
+}}
+```
+
+**How it works:**
+
+- `maskImage` controls visibility like opacity, but with gradients
+- `black` = fully visible
+- `transparent` = fully hidden
+- `40%` to `95%` = smooth fade zone
+- Need both `maskImage` and `WebkitMaskImage` for browser compatibility
+
+**Common gradient patterns:**
+
+```tsx
+// Fade from bottom
+"linear-gradient(to bottom, black 50%, transparent 100%)"
+
+// Fade from right
+"linear-gradient(to right, black 60%, transparent 90%)"
+
+// Fade from both bottom and right
+"linear-gradient(to bottom, black 40%, transparent 95%),
+ linear-gradient(to right, black 60%, transparent 90%)"
+```
+
+---
+
+## 🖥️ Design Workflow Best Practices
+
+### Desktop-First Approach
+
+**✅ Recommended Process:**
+
+1. **Design for Desktop First**
+
+   - Build complete layout for large screens (1280px+)
+   - Perfect the spacing, typography, and interactions
+   - Get all animations and effects working
+
+2. **Then Adapt for Smaller Screens**
+   - Add responsive breakpoints (`md:`, `sm:`)
+   - Adjust layouts for tablets
+   - Simplify for mobile
+   - Stack elements vertically on small screens
+
+**Why Desktop-First?**
+
+- Easier to remove/simplify features than add them
+- Desktop has more space for complex layouts
+- Mobile naturally inherits simpler base styles
+- Faster iteration on the primary viewing experience
+
+**Example implementation:**
+
+```tsx
+// First: Build for desktop
+<div className="flex gap-8">
+  <div className="w-1/2">Left column</div>
+  <div className="w-1/2">Right column</div>
+</div>
+
+// Then: Add mobile responsiveness
+<div className="flex flex-col md:flex-row gap-4 md:gap-8">
+  <div className="w-full md:w-1/2">Left column</div>
+  <div className="w-full md:w-1/2">Right column</div>
+</div>
+```
+
+### Common Image Issues & Fixes
+
+**Problem: Image has typos in transform**
+
+```tsx
+// ❌ Typo breaks the transform
+transform: "rotateX(20deg) roatateY(30deg)"; // 'roatate' typo!
+```
+
+**Always double-check:**
+
+- Correct spelling: `rotate`, `translate`, `scale`
+- Proper unit: `deg` for rotation, `px` for translation
+- Valid axis: `X`, `Y`, `Z` (case-sensitive)
+
+**Problem: Invalid utility classes**
+
+```tsx
+// ❌ These classes don't exist in Tailwind
+className = "mask-r-from-50% mask-b-from-50%";
+```
+
+**✅ Use inline styles instead:**
+
+```tsx
+style={{
+  maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+  WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+}}
+```
+
+---
+
+## 🔄 Git Workflow
+
+### Commit & Push Pattern
+
+```bash
+# Check status
+git status
+
+# Stage all changes
+git add .
+
+# Commit with descriptive message
+git commit -m "Add hero section with 3D stacked image animation"
+
+# Push to remote
+git push
+```
+
+**If push fails with "rejected" error:**
+
+```bash
+# Pull latest changes with rebase
+git pull --rebase
+
+# If already up to date but still failing, force push
+git push --force
+```
+
+**⚠️ Force push warning:**
+
+- Only use `--force` when you're sure
+- Never force push to main/master in team projects
+- Make sure you're pushing to your own branch
+
+**Good commit message patterns:**
+
+```bash
+# Format: <Action> <what> <why/context>
+"Add hero section with 3D stacked image animation"
+"Fix TypeScript error in Landinimage component"
+"Update animation timing for better UX"
+"Remove absolute positioning from hero image"
+```
+
+---
+
+## 📌 Updated Quick Reference
+
+### Framer Motion Essentials
+
+```tsx
+// Basic animation
+<motion.div
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, ease: "easeOut" as const }}
+/>;
+
+// With variants (cleaner for complex animations)
+const variants = {
+  hidden: { opacity: 0, scale: 0.98 },
+  visible: { opacity: 1, scale: 1 },
+  transition: { duration: 0.5, ease: "easeOut" as const },
+};
+
+<motion.div
+  initial="hidden"
+  animate="visible"
+  transition={variants.transition}
+  variants={variants}
+/>;
+```
+
+### 3D Transform Checklist
+
+- [ ] Add `perspective-[value]` to parent
+- [ ] Use `transformStyle: "preserve-3d"` for 3D children
+- [ ] Combine rotations: `rotateX()` `rotateY()` `rotateZ()`
+- [ ] For stacking, use `translateZ()` for depth
+- [ ] Test with different perspective values (1000px - 4000px)
+
+### Image Positioning Rules
+
+1. **Natural size**: Use `width` and `height` props, no `absolute`
+2. **Absolute positioning**: Parent must have defined height
+3. **Stacking**: Use `z-index` (Tailwind: `z-10`, `z-20`)
+4. **Offset layers**: Use `translate-x-*` and `translate-y-*` utilities
 
 ---
 
 **Last Updated:** 2025-11-24  
-**Next Steps:** Build Hero section with Heading component
+**Latest Work:** Hero section with 3D stacked image animation using Framer Motion  
+**Next Steps:** Optimize for mobile and tablet screens

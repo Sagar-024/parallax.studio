@@ -5,37 +5,42 @@ import Container from "../Container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
-import uiImage from "@/app/assets/ui.jpg";
-import { Landinimage } from "./Landinimage";
+import { Landingimage } from "./Landinimage";
 
 export default function Hero() {
   return (
     <div className="pt-10 md:pt-20 lg:pt-24">
       <Container>
-        <Heading as="h1">
-          Agent that do the work <br /> Approval that keep you happy
+        <Heading as="h1" className="tracking-[-0.04em] leading-[0.9] mb-6">
+          We Don't Just Build. <br /> We Define Categories.
         </Heading>
-        <Subheading className="mt-4 text-neutral-400 dark:text-neutral-600 font-inter py-8">
-          Deploy AI agents that plan, act through your tools, and report
-          outcomes—without changing how your teams work.
+        <Subheading className="mt-8 text-neutral-500 dark:text-neutral-400 font-inter text-lg md:text-xl max-w-2xl leading-relaxed">
+          Parallax is a multidisciplinary studio blending cinematic motion,
+          surgical engineering, and strategic design to create digital products
+          that cannot be ignored.
         </Subheading>
 
-        <div className="flex items-center gap-4">
-          <Button variant="default" className="shadow-brand">
-            <Link href="/pricing" className="flex items-center gap-1">
-              Start a 30 day pilot
+        <div className="flex items-center gap-6 mt-10">
+          <Button
+            variant="default"
+            className="shadow-brand h-12 px-6 rounded-full text-base"
+          >
+            <Link href="/contact" className="flex items-center gap-2">
+              Start Your Project
               <ChevronRight className="w-4 h-4" />
             </Link>
           </Button>
-          <Button variant="ghost">
-            <Link href="/demos" className="flex items-center gap-1">
-              View role based demos
+          <Button
+            variant="ghost"
+            className="h-12 px-6 rounded-full text-base hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+          >
+            <Link href="/work" className="flex items-center gap-2">
+              View Selected Work
               <ChevronRight className="w-4 h-4" />
             </Link>
           </Button>
         </div>
-        <Landinimage />
+        <Landingimage />
       </Container>
     </div>
   );

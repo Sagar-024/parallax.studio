@@ -3,9 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
-
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -39,7 +36,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --shadow-brand: -82px 54px 27px 0px rgba(0, 0, 0, 0.01), -52px 35px 25px 0px rgba(0, 0, 0, 0.04), -29px 19px 21px 0px rgba(0, 0, 0, 0.15), -13px 9px 16px 0px rgba(0, 0, 0, 0.25), -3px 2px 9px 0px rgba(0, 0, 0, 0.29);
+  --shadow-brand: -82px 54px 27px 0px rgba(0, 0, 0, 0.01),
+    -52px 35px 25px 0px rgba(0, 0, 0, 0.04),
+    -29px 19px 21px 0px rgba(0, 0, 0, 0.15),
+    -13px 9px 16px 0px rgba(0, 0, 0, 0.25), -3px 2px 9px 0px rgba(0, 0, 0, 0.29);
 }
 
 .dark {
@@ -74,7 +74,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --shadow-brand: -82px 54px 27px 0px rgba(255, 255, 255, 0.01), -52px 35px 25px 0px rgba(255, 255, 255, 0.04), -29px 19px 21px 0px rgba(255, 255, 255, 0.15), -13px 9px 16px 0px rgba(255, 255, 255, 0.25), -3px 2px 9px 0px rgba(255, 255, 255, 0.29);
+  --shadow-brand: -82px 54px 27px 0px rgba(255, 255, 255, 0.01),
+    -52px 35px 25px 0px rgba(255, 255, 255, 0.04),
+    -29px 19px 21px 0px rgba(255, 255, 255, 0.15),
+    -13px 9px 16px 0px rgba(255, 255, 255, 0.25),
+    -3px 2px 9px 0px rgba(255, 255, 255, 0.29);
 }
 
 @theme inline {
@@ -124,6 +128,25 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-black;
+    overflow-x: hidden;
+    /* Premium Noise Texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+  }
+
+  /* Global Typography Refinements */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight font-display;
+    letter-spacing: -0.04em; /* Aggressive editorial tracking */
+  }
+
+  p {
+    @apply tracking-normal text-neutral-600 dark:text-neutral-400;
   }
 }

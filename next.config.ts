@@ -11,7 +11,16 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'i.pinimg.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
+  },
+  experimental: {
+    turbopack: {
+      root: process.cwd(),
+    },
   },
 };
 

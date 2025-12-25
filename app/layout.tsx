@@ -3,6 +3,8 @@ import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/Shared/Theme/theme-provider";
 import Navbar from "./components/Shared/Navbar/page";
+import SmoothScrolling from "./components/Shared/SmoothScrolling";
+import { CustomCursor } from "./components/ui/custom-cursor";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -35,10 +37,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="min-h-screen bg-background text-foreground">
-            {children}
-          </main>
+          <SmoothScrolling>
+            <CustomCursor />
+            <Navbar />
+            <main className="min-h-screen bg-background text-foreground">
+              {children}
+            </main>
+          </SmoothScrolling>
         </ThemeProvider>
       </body>
     </html>
