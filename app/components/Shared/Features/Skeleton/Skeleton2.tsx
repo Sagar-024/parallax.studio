@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+
 import {
   IconCircleDashedCheck,
   IconRipple,
@@ -10,7 +11,7 @@ import {
 } from "@tabler/icons-react";
 import { Badge } from "./Skeleton1";
 
-const cardVariants = {
+const cardVariants: Variants = {
   rest: {
     opacity: 1,
     y: 0,
@@ -32,7 +33,7 @@ const cardVariants = {
   },
 };
 
-const rowVariants = {
+const rowVariants: Variants = {
   rest: {
     opacity: 1,
     rotateX: -90,
@@ -61,7 +62,7 @@ interface RowProps {
 
 const Row = ({ icon, text, time, delay = 0 }: RowProps) => {
   // Create row variant with custom delay
-  const rowVariantWithDelay = {
+  const rowVariantWithDelay: Variants = {
     rest: {
       opacity: 1,
       rotateX: 0,

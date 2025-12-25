@@ -97,3 +97,5 @@ export const Process = () => {
     </section>
   );
 };
+
+export default Process;

@@ -141,3 +141,5 @@ const ButtonWithArrow = ({ children }: { children: React.ReactNode }) => {
     </button>
   );
 };
+
+export default FeaturedProjects;

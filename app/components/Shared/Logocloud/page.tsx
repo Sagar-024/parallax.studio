@@ -63,3 +63,5 @@ export const LogoCloud = () => {
     </section>
   );
 };
+
+export default LogoCloud;
