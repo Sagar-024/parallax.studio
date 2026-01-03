@@ -1,8 +1,8 @@
 import Hero from "./components/Shared/Hero/page";
-import { LogoCloud } from "./components/Shared/Logocloud/page";
-import { Features } from "./components/Shared/Features/page";
-import { Benefits } from "./components/Shared/Benefits/page";
-import { PricingSection } from "./components/Shared/Pricing/page";
+import { LogoCloud } from "./components/Shared/Logocloud/LogoCloud";
+import { Features } from "./components/Shared/Features/Features";
+import { Benefits } from "./components/Shared/Benefits/Benefits";
+import { PricingSection } from "./components/Shared/Pricing/Pricing";
 
 export default function Home() {
   return (
