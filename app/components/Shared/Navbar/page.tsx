@@ -12,14 +12,12 @@ import { IconX } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
 const navLinks = [
-  { name: "Features", href: "/features" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Products", href: "/products" },
-  { name: "Socials", href: "/socials" },
+  { name: "Features", href: "#features" },
+  { name: "Benefits", href: "#benefits" },
+  { name: "Pricing", href: "#pricing" },
 ];
 const navLinks2 = [
-  { name: "Login", href: "/login" },
-  { name: "Sign Up", href: "/signup" },
+  { name: "Book a Meeting", href: "https://cal.com/sagar-kharal-dos0d4/30min" },
 ];
 
 export const Navbar = () => {
@@ -55,16 +53,15 @@ const Desktopbar = () => {
       </nav>
 
       <div className="flex items-center gap-x-4">
-        <Link href="/login">
-          <Button variant="ghost" className="cursor-pointer">
-            login
+        <a
+          href="https://cal.com/sagar-kharal-dos0d4/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button variant="default" className="cursor-pointer">
+            Book a Meeting
           </Button>
-        </Link>
-        <Link href="/signup">
-          <Button variant="default" className="cursor-pointer  ">
-            Sign up
-          </Button>
-        </Link>
+        </a>
         <ModeToggle />
       </div>
     </Container>
@@ -138,7 +135,7 @@ const Mobilebar = () => {
                     }}
                   >
                     <Button variant="default" asChild className="font-bold">
-                      <Link href={link.href}>{link.name}</Link>
+                      <a href={link.href}>{link.name}</a>
                     </Button>
                   </motion.div>
                 );

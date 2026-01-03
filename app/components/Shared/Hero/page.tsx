@@ -24,11 +24,17 @@ export default function Hero() {
           <Button
             variant="default"
             className="shadow-brand h-12 px-6 rounded-full text-base"
+            asChild
           >
-            <Link href="/contact" className="flex items-center gap-2">
+            <a
+              href="https://cal.com/sagar-kharal-dos0d4/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
               Start Your Project
               <ChevronRight className="w-4 h-4" />
-            </Link>
+            </a>
           </Button>
 
           {/* <Button

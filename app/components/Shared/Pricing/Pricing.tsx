@@ -5,7 +5,7 @@ import { IconCheck, IconSparkles, IconRocket } from "@tabler/icons-react";
 
 export const PricingSection = () => {
   return (
-    <Container className="relative w-full py-20 ">
+    <Container id="pricing" className="relative w-full py-20 ">
       {/* Dot Grid Background */}
       <div
         className="absolute inset-0 z-0"
@@ -93,7 +93,12 @@ const StarterPricingCard = () => {
             </div>
 
             {/* CTA Button */}
-            <button className="group/btn relative w-full overflow-hidden rounded-xl">
+            <a
+              href="https://cal.com/sagar-kharal-dos0d4/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/btn relative w-full overflow-hidden rounded-xl block"
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 dark:from-black/0 dark:via-black/30 dark:to-black/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000" />
 
               <div className="relative py-4 px-6 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-bold text-base rounded-xl shadow-lg shadow-white/20 dark:shadow-black/40 group-hover/btn:shadow-xl group-hover/btn:scale-[1.02] active:scale-[0.98] transition-all duration-200">
@@ -114,7 +119,7 @@ const StarterPricingCard = () => {
                   </svg>
                 </span>
               </div>
-            </button>
+            </a>
           </header>
 
           {/* Features Section - Light Background */}
@@ -230,7 +235,12 @@ const ProPricingCard = () => {
             </div>
 
             {/* CTA Button - Premium neutral gradient */}
-            <button className="group/btn relative w-full overflow-hidden rounded-xl">
+            <a
+              href="https://cal.com/sagar-kharal-dos0d4/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/btn relative w-full overflow-hidden rounded-xl block"
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-neutral-400/0 via-neutral-400/20 dark:via-white/20 to-neutral-400/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000" />
 
               <div className="relative py-4 px-6 bg-gradient-to-r from-neutral-800 to-neutral-900 dark:from-white dark:to-neutral-100 text-white dark:text-neutral-900 font-bold text-base rounded-xl shadow-lg shadow-neutral-900/30 dark:shadow-white/20 group-hover/btn:shadow-xl group-hover/btn:shadow-neutral-900/40 dark:group-hover/btn:shadow-white/30 group-hover/btn:scale-[1.02] active:scale-[0.98] transition-all duration-200">
@@ -251,7 +261,7 @@ const ProPricingCard = () => {
                   </svg>
                 </span>
               </div>
-            </button>
+            </a>
           </header>
 
           {/* Features Section - DARK Background (INVERTED) */}

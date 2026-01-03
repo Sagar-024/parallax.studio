@@ -9,7 +9,7 @@ import { SkeletonCard3 } from "./Skeleton/Skeleton3";
 
 export const Features = () => {
   return (
-    <Container className=" py-10 md:py-20  ">
+    <Container id="features" className=" py-10 md:py-20  ">
       <div className="flex  lg:flex-row  flex-col  lg:items-baseline-last justify-between gap-10 ">
         <Heading className="text-center lg:text-left md:text-center">
           Why brand choose us <br /> what we offer{" "}
