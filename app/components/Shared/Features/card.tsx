@@ -12,6 +12,7 @@ import {
 } from "@tabler/icons-react";
 import { Badge } from "./Skeleton/Skeleton1";
 import { SkeletonCard1 } from "./Skeleton/Skeleton1";
+
 export const Card = ({
   className,
   children,
@@ -19,45 +20,14 @@ export const Card = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  const [position, setPosition] = React.useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = React.useState(0);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current) return;
-    const rect = divRef.current.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
-  const handleMouseEnter = () => {
-    setOpacity(1);
-  };
-
-  const handleMouseLeave = () => {
-    setOpacity(0);
-  };
-
   return (
     <div
-      ref={divRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative p-[1px] rounded-lg overflow-hidden group ",
+        "relative z-20 bg-neutral-100 dark:bg-neutral-800 rounded-lg h-full overflow-hidden mx-auto lg:mx-0 w-full ",
         className
       )}
     >
-      <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 z-10"
-        style={{
-          opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.4), transparent 40%)`,
-        }}
-      />
-      <div className="relative z-20 bg-neutral-100 dark:bg-neutral-800 rounded-lg h-full overflow-hidden">
-        {children}
-      </div>
+      {children}
     </div>
   );
 };
@@ -96,7 +66,7 @@ export const CardSkeloton = ({
   return (
     <div
       className={cn(
-        "min-h-40 md:h-80 relative overflow-hidden  bg-white dark:bg-neutral-900 flex justify-center"
+        "h-80 sm:h-60 md:h-80 relative overflow-hidden  bg-neutral-100/50 dark:bg-neutral-900 flex justify-center"
       )}
     >
       {children}

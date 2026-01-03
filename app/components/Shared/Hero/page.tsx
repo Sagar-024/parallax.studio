@@ -30,7 +30,8 @@ export default function Hero() {
               <ChevronRight className="w-4 h-4" />
             </Link>
           </Button>
-          <Button
+
+          {/* <Button
             variant="ghost"
             className="h-12 px-6 rounded-full text-base hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
           >
@@ -38,7 +39,7 @@ export default function Hero() {
               View Selected Work
               <ChevronRight className="w-4 h-4" />
             </Link>
-          </Button>
+          </Button> */}
         </div>
         <Landingimage />
       </Container>

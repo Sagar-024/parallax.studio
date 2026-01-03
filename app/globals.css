@@ -130,23 +130,7 @@
   body {
     @apply bg-background text-foreground antialiased selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-black;
     overflow-x: hidden;
-    /* Premium Noise Texture */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-    background-attachment: fixed;
   }
 
   /* Global Typography Refinements */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply tracking-tight font-display;
-    letter-spacing: -0.04em; /* Aggressive editorial tracking */
-  }
-
-  p {
-    @apply tracking-normal text-neutral-600 dark:text-neutral-400;
-  }
 }
