@@ -1,18 +1,39 @@
 import Hero from "./components/Shared/Hero/page";
 import { LogoCloud } from "./components/Shared/Logocloud/LogoCloud";
 import { Features } from "./components/Shared/Features/Features";
+import { Works } from "./components/Shared/Works/Works";
+import { ParallaxBenefit } from "./components/Shared/ParallaxBenefit/ParallaxBenefit";
 import { Benefits } from "./components/Shared/Benefits/Benefits";
+import { HowWeWork } from "./components/Shared/HowWeWork/HowWeWork";
+import { CTASection } from "./components/Shared/CTASection/CTASection";
 import { PricingSection } from "./components/Shared/Pricing/Pricing";
 
 export default function Home() {
   return (
     <div className="min-h-screen  font-manrope">
       <Hero />
+      <Works />
+      <CTASection
+        variant="minimal"
+        title="Liked What You Saw?"
+        subtitle="Let's discuss how we can create something amazing for you too."
+      />
       {/* <LogoCloud /> */}
       <Features />
+      <ParallaxBenefit />
       <Benefits />
+      <HowWeWork />
+      <CTASection
+        title="Ready to Start Your Project?"
+        subtitle="Let's discuss how we can bring your vision to life. Book a free 30-minute consultation."
+      />
       <Pricing />
       <PricingSection />
+      <CTASection
+        variant="bold"
+        title="Let's Build Something Great Together"
+        subtitle="Join 50+ companies who trusted us to transform their ideas into reality."
+      />
     </div>
   );
 }

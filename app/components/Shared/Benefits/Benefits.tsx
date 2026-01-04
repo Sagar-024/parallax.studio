@@ -15,7 +15,7 @@ export const Benefits = () => {
   return (
     <Container
       id="benefits"
-      className="relative w-full py-10 md:py-16 lg:py-20 "
+      className="relative w-full py-16 md:py-24 lg:py-32"
     >
       <div
         className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#e7e5e4_1px,transparent_1px),linear-gradient(to_bottom,#e7e5e4_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:20px_20px] bg-[position:0_0,0_0]"

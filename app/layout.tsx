@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import {
+  Manrope,
+  Inter,
+  Space_Grotesk,
+  Cormorant_Garamond,
+} from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/Shared/Theme/theme-provider";
 import Navbar from "./components/Shared/Navbar/page";
@@ -17,6 +22,18 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Premeuim Agency brand ",
   description: "Built by Sagar Kharal with love",
@@ -29,7 +46,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${manrope.variable} ${inter.variable} antialiased`}>
+      <body
+        className={`${manrope.variable} ${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

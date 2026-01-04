@@ -9,18 +9,25 @@ import { Landingimage } from "./Landinimage";
 
 export default function Hero() {
   return (
-    <div className="pt-10 md:pt-20 lg:pt-24">
+    <div className="pt-16 md:pt-24 lg:pt-32">
       <Container>
-        <Heading as="h1" className="tracking-[-0.04em] leading-[0.9] mb-6">
-          We Don't Just Build. <br /> We Define Categories.
+        <Heading as="h1" className="tracking-[-0.04em] leading-[0.9] mb-8">
+          We Turn Your Ideas <br /> Into Working Products.
         </Heading>
-        <Subheading className="mt-8 text-neutral-500 dark:text-neutral-400 font-inter text-lg md:text-xl max-w-2xl leading-relaxed">
-          Parallax is a multidisciplinary studio blending cinematic motion,
-          surgical engineering, and strategic design to create digital products
-          that cannot be ignored.
+        <Subheading className="mt-6 text-neutral-500 dark:text-neutral-400 font-inter text-lg md:text-xl max-w-2xl leading-relaxed">
+          We build{" "}
+          <span className="text-black dark:text-white font-medium">
+            high-converting landing pages
+          </span>
+          , <span className="text-black dark:text-white font-medium">MVPs</span>
+          , and{" "}
+          <span className="text-black dark:text-white font-medium">
+            full-stack applications
+          </span>{" "}
+          that scale with your vision.
         </Subheading>
 
-        <div className="flex items-center gap-6 mt-10">
+        <div className="flex items-center gap-6 mt-12">
           <Button
             variant="default"
             className="shadow-brand h-12 px-6 rounded-full text-base"
@@ -32,7 +39,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="flex items-center gap-2"
             >
-              Start Your Project
+              Book a Meeting
               <ChevronRight className="w-4 h-4" />
             </a>
           </Button>

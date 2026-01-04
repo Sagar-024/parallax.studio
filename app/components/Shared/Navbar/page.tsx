@@ -12,6 +12,7 @@ import { IconX } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
 const navLinks = [
+  { name: "Works", href: "#works" },
   { name: "Features", href: "#features" },
   { name: "Benefits", href: "#benefits" },
   { name: "Pricing", href: "#pricing" },

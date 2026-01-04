@@ -134,3 +134,32 @@
 
   /* Global Typography Refinements */
 }
+
+/* Marquee Animation Styles */
+@layer utilities {
+  .animate-marquee-left {
+    animation: marquee-left var(--duration, 40s) linear infinite;
+  }
+  
+  .animate-marquee-right {
+    animation: marquee-right var(--duration, 40s) linear infinite;
+  }
+
+  @keyframes marquee-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
