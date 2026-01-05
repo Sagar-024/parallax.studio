@@ -136,7 +136,9 @@ const Mobilebar = () => {
                     }}
                   >
                     <Button variant="default" asChild className="font-bold">
-                      <a href={link.href}>{link.name}</a>
+                      <a href={link.href} onClick={() => setOpen(false)}>
+                        {link.name}
+                      </a>
                     </Button>
                   </motion.div>
                 );
@@ -170,7 +172,9 @@ const Mobilebar = () => {
                     delay: index * 0.2,
                   }}
                 >
-                  <Link href={link.href}>{link.name}</Link>
+                  <Link href={link.href} onClick={() => setOpen(false)}>
+                    {link.name}
+                  </Link>
                 </motion.div>
               );
             })}
