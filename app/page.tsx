@@ -7,6 +7,7 @@ import { Benefits } from "./components/Shared/Benefits/Benefits";
 import { HowWeWork } from "./components/Shared/HowWeWork/HowWeWork";
 import { CTASection } from "./components/Shared/CTASection/CTASection";
 import { PricingSection } from "./components/Shared/Pricing/Pricing";
+import { Footer } from "./components/Shared/Footer/Footer";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
         title="Let's Build Something Great Together"
         subtitle="Join 50+ companies who trusted us to transform their ideas into reality."
       />
+      <Footer />
     </div>
   );
 }

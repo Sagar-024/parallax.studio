@@ -39,21 +39,23 @@ export const PricingSection = () => {
 // ============================================
 const StarterPricingCard = () => {
   const features = [
-    "Up to 5 pages (home, about, services, contact, blog)",
-    "Mobile-responsive design (using modern CSS/JS)",
-    "Basic animations/transitions",
-    "Stock images/icons + your content",
-    "1 round of tweaks",
-    "Handover files (no hosting)",
+    "Up to 3 pages (Home, About, Contact or Services)",
+    "Responsive design – works perfectly on mobile, tablet, and desktop",
+    "Modern UI/UX design – clean, easy to navigate, professional look",
+    "Contact form integration – lets your visitors get in touch easily",
+    "Basic website animations – smooth hover effects and transitions",
+    "Fast-loading website – optimized for performance",
+    "Cross-browser compatibility – works on Chrome, Firefox, Safari, Edge",
+    "1–2 revision rounds – we make sure it's how you want it",
+    "SSL ready – safe and secure website setup",
+    "Basic SEO setup – meta tags, titles, and keywords for search engines",
+    "Google Maps integration – for business location if needed",
   ];
 
   return (
     <article className="group relative">
-      {/* Hover Glow Effect */}
-      <div className="absolute -inset-[1px] bg-gradient-to-b from-neutral-200/50 via-neutral-300/30 to-neutral-200/50 dark:from-white/[0.15] dark:via-white/[0.08] dark:to-white/[0.15] rounded-[26px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm " />
-
       {/* Card Container */}
-      <div className="relative rounded-[25px] bg-gradient-to-br from-neutral-100 via-white to-neutral-50 dark:from-neutral-800 dark:via-neutral-900 dark:to-black border border-neutral-300/60 dark:border-white/[0.1] shadow-2xl shadow-neutral-900/10 dark:shadow-black/40 group-hover:shadow-[0_20px_70px_-15px] group-hover:shadow-neutral-900/20 dark:group-hover:shadow-black/60 transition-all duration-500 ">
+      <div className="relative rounded-[25px] bg-gradient-to-br from-neutral-100 via-white to-neutral-50 dark:from-neutral-800 dark:via-neutral-900 dark:to-black border border-neutral-300/60 dark:border-white/[0.1] shadow-2xl shadow-neutral-900/10 dark:shadow-black/40 transition-all duration-500 ">
         <div className="p-[3px] rounded-[25px]">
           {/* Header Section - Dark Background */}
           <header className="relative overflow-hidden rounded-t-[22px] bg-gradient-to-br from-neutral-900 via-neutral-950 to-black dark:from-white dark:via-neutral-50 dark:to-neutral-100 p-6 md:p-8 lg:p-10">
@@ -70,21 +72,19 @@ const StarterPricingCard = () => {
 
             {/* Title */}
             <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white dark:text-neutral-900 mb-3 tracking-tight leading-[1.1]">
-              Quick Launch
+              Basic Package
             </h3>
             <p className="text-neutral-300 dark:text-neutral-600 text-base leading-relaxed mb-8 max-w-md">
-              Fast online presence for solos and side-hustlers. Quick
-              turnaround: 1-2 weeks.
+              Ideal for personal websites, portfolios, startups, and small
+              businesses. Professional online presence without breaking the
+              bank.
             </p>
 
             {/* Pricing Display */}
             <div className="mb-8">
               <div className="flex items-baseline gap-2">
                 <span className="text-5xl md:text-6xl lg:text-7xl font-black text-white dark:text-neutral-900 tracking-tighter">
-                  $800
-                </span>
-                <span className="text-lg font-semibold text-neutral-400 dark:text-neutral-600">
-                  – $1,500
+                  $299
                 </span>
               </div>
               <p className="text-sm text-neutral-400 dark:text-neutral-600 mt-2">
@@ -172,11 +172,18 @@ const StarterPricingCard = () => {
 // ============================================
 const ProPricingCard = () => {
   const features = [
-    "Up to 10 pages + custom sections (galleries, forms via embeds)",
-    "Advanced UI/UX (parallax, interactive elements)",
-    "SEO basics (meta tags, speed optimization)",
-    "2 rounds of revisions + style guide",
-    "Optional: Simple hosting setup ($50 extra/mo)",
+    "Up to 8 pages (Home, About, Services, Blog, Contact, Portfolio, FAQ, etc.)",
+    "Fully customized, feature-rich design – modern and professional",
+    "Responsive and mobile-optimized for all devices",
+    "Advanced UI/UX design – animations, hover effects, interactive elements",
+    "Contact forms + newsletter signup + social media integration",
+    "Blog or portfolio section – showcase your content professionally",
+    "Basic SEO optimization – meta tags, titles, descriptions, keywords",
+    "Fast-loading website – optimized images, scripts, and performance",
+    "Cross-browser compatibility – works perfectly on all major browsers",
+    "SSL setup – safe and secure",
+    "Google Maps integration – for multiple locations if needed",
+    "3–5 revision rounds – ensures full satisfaction",
   ];
 
   return (
@@ -191,11 +198,8 @@ const ProPricingCard = () => {
         </div>
       </div>
 
-      {/* Hover Glow Effect - Refined neutral tone */}
-      <div className="absolute -inset-[2px] bg-gradient-to-b from-neutral-200/50 via-neutral-300/30 to-neutral-200/50 dark:from-white/[0.18] dark:via-white/[0.1] dark:to-white/[0.18] rounded-[26px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
-
       {/* Card Container */}
-      <div className="relative rounded-[25px] bg-gradient-to-br from-white via-neutral-50 to-neutral-100 dark:from-neutral-900 dark:via-black dark:to-neutral-950 border-2 border-neutral-300/50 dark:border-white/[0.12] shadow-2xl shadow-neutral-900/15 dark:shadow-black/50 group-hover:shadow-[0_20px_70px_-15px] group-hover:shadow-neutral-900/25 dark:group-hover:shadow-black/70 group-hover:border-neutral-400/60 dark:group-hover:border-white/[0.18] transition-all duration-500">
+      <div className="relative rounded-[25px] bg-gradient-to-br from-white via-neutral-50 to-neutral-100 dark:from-neutral-900 dark:via-black dark:to-neutral-950 border-2 border-neutral-300/50 dark:border-white/[0.12] shadow-2xl shadow-neutral-900/15 dark:shadow-black/50 transition-all duration-500">
         <div className="p-[3px] rounded-[25px]">
           {/* Header Section - LIGHT Background (INVERTED) */}
           <header className="relative overflow-hidden rounded-t-[22px] bg-gradient-to-br from-white via-neutral-50 to-neutral-100 dark:from-neutral-900 dark:via-neutral-950 dark:to-black p-6 md:p-8 lg:p-10">
@@ -212,21 +216,18 @@ const ProPricingCard = () => {
 
             {/* Title */}
             <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-3 tracking-tight leading-[1.1]">
-              Elevated Build
+              Premium Package
             </h3>
             <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed mb-8 max-w-md">
-              Stand out with premium flair for small businesses. Ready in 2-4
-              weeks.
+              Ideal for startups, small businesses, e-commerce landing pages, or
+              anyone wanting a polished professional web presence.
             </p>
 
             {/* Pricing Display */}
             <div className="mb-8">
               <div className="flex items-baseline gap-2">
                 <span className="text-5xl md:text-6xl lg:text-7xl font-black text-neutral-900 dark:text-white tracking-tighter">
-                  $2,000
-                </span>
-                <span className="text-lg font-semibold text-neutral-600 dark:text-neutral-400">
-                  – $4,000
+                  $799
                 </span>
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">

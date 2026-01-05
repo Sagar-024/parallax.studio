@@ -7,7 +7,7 @@ export const Logo = ({ className }: { className?: string }) => {
   return (
     <Link href="/" className={cn("flex items-center gap-2")}>
       <LogoIcon className="animate-spin  [animation-duration:3s]" />
-      <span className="text-sm font-bold text-center mix-blend-difference text-white dark:text-white uppercase tracking-widest">
+      <span className="text-sm font-bold text-center text-neutral-900 dark:text-white uppercase tracking-widest">
         Parallax
       </span>
     </Link>
