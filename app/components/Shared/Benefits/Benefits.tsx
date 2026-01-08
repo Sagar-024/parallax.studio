@@ -97,37 +97,37 @@ const benefits = [
   {
     title: "Pricing with Good Value",
     description:
-      "Clients want to understand exactly what they're paying for upfront, with no hidden fees or surprise costs.",
+      "Transparent pricing with no hidden fees or surprise costs. You'll know exactly what you're paying for upfront.",
     icon: <IconCoin stroke={1.5} className="size-8" />,
   },
   {
     title: "Responsive Communication",
     description:
-      "Clients want an agency that replies promptly, keeps them updated throughout the project, and doesn't ghost.",
+      "We reply promptly and keep you updated throughout the project. No ghosting, just consistent communication.",
     icon: <IconMessage2 stroke={1.5} className="size-8" />,
   },
   {
     title: "Proven Track Record",
     description:
-      "Clients want to see real examples of your previous work, especially projects similar to what they need.",
+      "Real examples of our previous work, including projects similar to yours. Our portfolio speaks for itself.",
     icon: <IconChartBar stroke={1.5} className="size-8" />,
   },
   {
     title: "Realistic Timelines",
     description:
-      "They want agencies that set achievable deadlines and actually meet them. Clients appreciate honesty.",
+      "We set achievable deadlines and actually meet them. Honesty and reliability are at the core of our process.",
     icon: <IconClock stroke={1.5} className="size-8" />,
   },
   {
     title: "Support and Maintenance",
     description:
-      "Clients want to know you'll be there to fix bugs, make updates, provide training, and offer maintenance.",
+      "We're here for the long haul. Bug fixes, updates, training, and ongoing maintenance—we've got you covered.",
     icon: <IconTool stroke={1.5} className="size-8" />,
   },
   {
     title: "Business Goals Aligned",
     description:
-      "Clients want an agency that takes time to understand their specific needs and business objectives.",
+      "We take time to understand your specific needs and business objectives to deliver results that matter.",
     icon: <IconTarget stroke={1.5} className="size-8" />,
   },
 ];
