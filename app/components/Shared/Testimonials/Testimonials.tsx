@@ -106,27 +106,6 @@ export const Testimonials = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA Below Testimonials */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-neutral-600 dark:text-neutral-400 text-lg mb-6">
-            Ready to join our satisfied clients?
-          </p>
-          <a
-            href="https://cal.com/sagar-kharal-dos0d4/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all duration-200 shadow-lg hover:shadow-xl"
-          >
-            Book Your Free Consultation
-          </a>
-        </motion.div>
       </Container>
     </Container>
   );
