@@ -84,7 +84,7 @@ const StarterPricingCard = () => {
             <div className="mb-8">
               <div className="flex items-baseline gap-2">
                 <span className="text-5xl md:text-6xl lg:text-7xl font-black text-white dark:text-neutral-900 tracking-tighter">
-                  $299
+                  $399
                 </span>
               </div>
               <p className="text-sm text-neutral-400 dark:text-neutral-600 mt-2">
