@@ -173,7 +173,7 @@ export const Footer = () => {
         {/* Bottom Row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-neutral-600 dark:text-neutral-300">
-            © {currentYear} Parallax. Built with love by Sagar Kharal.
+            © {currentYear} Sagar Kharal. Crafting premium digital experiences.
           </p>
 
           <div className="flex items-center gap-6">

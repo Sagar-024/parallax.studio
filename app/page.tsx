@@ -7,6 +7,7 @@ import { Benefits } from "./components/Shared/Benefits/Benefits";
 import { HowWeWork } from "./components/Shared/HowWeWork/HowWeWork";
 import { CTASection } from "./components/Shared/CTASection/CTASection";
 import { PricingSection } from "./components/Shared/Pricing/Pricing";
+import { Testimonials } from "./components/Shared/Testimonials/Testimonials";
 import { Footer } from "./components/Shared/Footer/Footer";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
     <div className="min-h-screen  font-manrope">
       <Hero />
       <Works />
+      <Testimonials />
       <CTASection
         variant="minimal"
         title="Liked What You Saw?"

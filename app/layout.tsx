@@ -35,8 +35,9 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Premeuim Agency brand ",
-  description: "Built by Sagar Kharal with love",
+  title: "Sagar Kharal - Transform Your Ideas Into Reality",
+  description:
+    "Premium web development & design agency. We craft high-converting websites and digital products that drive results.",
 };
 
 export default function RootLayout({

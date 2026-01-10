@@ -12,7 +12,7 @@ export const Features = () => {
     <Container id="features" className=" py-10 md:py-20  ">
       <div className="flex  lg:flex-row  flex-col  lg:items-baseline-last justify-between gap-10 ">
         <Heading className="text-center lg:text-left md:text-center">
-          Why brand choose us <br />{" "}
+          Why brands choose us <br />{" "}
         </Heading>
 
         <Subheading className="text-center lg:text-left darK:text-neutral-200 mx-auto lg:mx-0 hidden sm:block">
